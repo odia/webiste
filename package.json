@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://odia.github.io/",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next build && next export"
+    "export": "next build && next export",
+    "predeploy": "npm run export",
+    "deploy": "touch out/.nojekyll && NODE_ENV=production gh-pages -t -d out -b master -r git@github.com:odia/odia.github.io.git"
   },
   "keywords": [],
   "author": "",
@@ -29,5 +32,8 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "sass-loader": "^7.1.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
